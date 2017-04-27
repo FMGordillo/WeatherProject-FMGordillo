@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {
     AppRegistry, 
     Text,
+    Switch,
     View,
 } from 'react-native';
+// import {Switch} from './Components/switch';
 
-const Switch = require('./Components/switch');
 const styles = require('./Resources/styles');
-// var switchComp = <Switch onValueChange={(val) => {console.log(val); }}/>;
 
 class PlatformSpecific extends Component {
     constructor(props) {
@@ -16,8 +16,8 @@ class PlatformSpecific extends Component {
             val: false,
         }
     }
-    _onValueChange = (val) => {
-        this.setState({val: val})
+    _onValueChange = (value) => {
+        this.setState({val: value})
     }
 
     render() {
@@ -27,7 +27,8 @@ class PlatformSpecific extends Component {
                 <Text style={styles.welcome}>
                     Make me blue!
                 </Text>
-                <Switch onValueChange={this._onValueChange} />
+                <Switch onValueChange={(value) => this.setState({val: value})}
+                    value={this.state.val}/>
             </View>
         )
     }

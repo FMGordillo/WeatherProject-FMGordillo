@@ -3,13 +3,13 @@ import {SwitchAndroid} from 'react-native';
 
 const styles = require('../Resources/styles');
 
-class Switch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: false
-        }
-    }
+export default class Switch extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         value: false
+    //     }
+    // }
 
     _onValueChange = (value) => {
         this.setState({value: value});
@@ -19,11 +19,7 @@ class Switch extends Component {
     }
 
     render() {
-        return(
-            <SwitchAndroid 
-                onValueChange={this._onValueChange}
-                value={this.state.value}/>
-        )
+        return <SwitchAndroid onValueChange={this._onValueChange} value={this.state.value}/>
     }
 }
 
